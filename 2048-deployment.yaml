@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: 2048-app
-          image: 816008167703.dkr.ecr.us-east-1.amazonaws.com/ci-cd-repository:8
+          image: 816008167703.dkr.ecr.us-east-1.amazonaws.com/ci-cd-repository:9
           ports:
             - containerPort: 3000
           resources:
