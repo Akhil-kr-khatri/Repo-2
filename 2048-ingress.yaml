@@ -1,22 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: 2048-ingress
+  name: 2048-app-ingress
   namespace: 2048-game
   annotations:
-    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
 spec:
+  ingressClassName: alb
   rules:
-    - host: 2048.wonder-hub.shop
+    - host: 2048.wonder-hub.shop  # your domain
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: 2048-service
+                name: game-2048   # must match service name
                 port:
                   number: 80
